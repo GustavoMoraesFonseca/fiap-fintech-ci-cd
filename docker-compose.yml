@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  oracle:
+    image: gvenzl/oracle-xe
+    hostname: oracle
+    container_name: oracle
+    ports:
+      - 1521:1521
+    environment:
+      ORACLE_PASSWORD: admin123
+    volumes:
+      - F:\Dev\Estudo\Auto\oracleDB\volume:/opt/oracle/oradata
