@@ -1,0 +1,4 @@
+br\com\github\fiap\global\solution\cap6\command\CrudCommandTest$DummyDto.class
+br\com\github\fiap\global\solution\cap6\dao\CrudDAOJdbcTest.class
+br\com\github\fiap\global\solution\cap6\dto\IntIdDTO.class
+br\com\github\fiap\global\solution\cap6\command\CrudCommandTest.class
