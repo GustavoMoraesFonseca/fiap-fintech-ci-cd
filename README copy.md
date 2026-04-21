@@ -24,38 +24,41 @@ docker-compose up --build
 
 3. Acesse a aplicação:
 
-* API: [http://localhost:8080/fiap/health](http://localhost:8080/fiap/health)
+* API: [http://localhost:8080](http://localhost:8080)
 * Banco Oracle: localhost:1521
 
 ---
 
 ## 🔄 Pipeline CI/CD
 
-O projeto utiliza **GitHub Actions** para automação de integração contínua e deploy contínuo.
+O projeto utiliza **GitHub Actions** como ferramenta de CI/CD.
 
 ### 🔧 Etapas do pipeline:
 
 1. **Checkout do código**
 
-   * O código é automaticamente clonado do repositório.
+   * Clona o repositório automaticamente.
 
 2. **Build da aplicação**
 
-   * Executa `mvn clean package` para compilar o projeto.
+   * Executa `mvn clean install` para compilar o projeto.
 
-3. **Execução de testes automatizados**
+3. **Testes automatizados**
 
-   * Executa `mvn test`, garantindo que as funcionalidades estão corretas.
+   * Executa `mvn test` garantindo a integridade da aplicação.
 
-4. **Deploy automatizado**
+4. **Deploy em Staging**
 
-   * A cada push na branch `main`, o pipeline dispara um deploy automático utilizando integração com serviço cloud (Render).
+   * Executado ao realizar push na branch `develop`.
+
+5. **Deploy em Produção**
+
+   * Executado ao realizar push na branch `main`.
 
 ### ⚙️ Funcionamento
 
-* O pipeline é executado automaticamente a cada alteração no repositório.
-* Garante qualidade do código antes do deploy.
-* Automatiza todo o processo de entrega da aplicação.
+* O pipeline é acionado automaticamente a cada push.
+* Garante que apenas código validado seja promovido entre ambientes.
 
 ---
 
@@ -93,7 +96,7 @@ ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-j
 
 ### 🧠 Estratégias adotadas:
 
-* **Multi-stage build**: separa build e runtime, reduzindo o tamanho da imagem
+* **Multi-stage build**: reduz o tamanho da imagem final
 * **Cache de dependências**: melhora o tempo de build
 * **Execução com usuário não-root**: aumenta a segurança
 * **Otimização da JVM para containers**
@@ -102,15 +105,17 @@ ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-j
 
 ## 📸 Prints do funcionamento
 
-### Evidências sugeridas:
+### Sugestões de evidências:
 
-* Execução do comando `docker-compose up --build`
-* Containers rodando no Docker
-* Pipeline executando no GitHub Actions
-* Deploy realizado com sucesso
-* Aplicação acessível via navegador
+* Execução do `docker-compose up`
+* Pipeline rodando no GitHub Actions
+* Aplicação respondendo no navegador (localhost:8080)
+* Logs do container
+* Deploy em staging e produção
 
-📌
+> Inserir imagens ou links aqui
+
+---
 ![alt text](image.png)
 ![alt text](image-2.png)
 ![alt text](image-1.png)
@@ -125,17 +130,7 @@ ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-j
 * Docker Compose
 * Oracle XE
 * GitHub Actions
-* Render (deploy em nuvem)
 
----
+## 📌 Observações
 
-## 📌 Considerações finais
-
-Este projeto demonstra a aplicação de práticas modernas de desenvolvimento, incluindo:
-
-* Integração contínua (CI)
-* Entrega contínua (CD)
-* Containerização com Docker
-* Automação de deploy
-
-Essas práticas tornam o sistema mais escalável, confiável e fácil de manter.
+Este projeto demonstra a implementação de práticas modernas de DevOps, incluindo integração contínua, entrega contínua e containerização de aplicações.
