@@ -2,6 +2,9 @@ package br.com.github.fiap.global.solution.cap6;
 
 import java.math.BigDecimal;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import br.com.github.fiap.global.solution.cap6.bean.GenericBean;
 import br.com.github.fiap.global.solution.cap6.command.CrudCommand;
 import br.com.github.fiap.global.solution.cap6.dao.CrudDAOJdbc;
@@ -10,10 +13,14 @@ import br.com.github.fiap.global.solution.cap6.dto.InvestmentDTO;
 import br.com.github.fiap.global.solution.cap6.dto.PersonalUserDTO;
 import br.com.github.fiap.global.solution.cap6.dto.UserDTO;
 import br.com.github.fiap.global.solution.cap6.dto.UserInvestmentDTO;
-
-public class Application {
 	
+@SpringBootApplication
+public class Application {
 	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	public static void maintTest(String[] args) {
 		testInvestment();
 		testBank();
 		testPersonalUser();

@@ -8,9 +8,12 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.github.fiap.global.solution.cap6.bean.GenericBean;
 import br.com.github.fiap.global.solution.cap6.dao.helper.CrudDAOHelper;
 
+@Repository
 public class CrudDAOJdbc<Dto> extends CrudDAOHelper<Dto> implements ICrudDAO<Dto> {
 	
 	@Override

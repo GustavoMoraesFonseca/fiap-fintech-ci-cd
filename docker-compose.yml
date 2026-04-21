@@ -1,4 +1,3 @@
-version: '3.4'
 services:
   oracle:
     image: gvenzl/oracle-xe
@@ -10,3 +9,23 @@ services:
       ORACLE_PASSWORD: admin123
     volumes:
       - F:\Dev\Estudo\Auto\oracleDB\volume:/opt/oracle/oradata
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: fiap-ci-cd
+    ports:
+      - "8080:8080"
+    depends_on:
+      - oracle
+    environment:
+      ORACLE_URL: jdbc:oracle:thin:@oracle:1521/xe
+      ORACLE_USER: 'SYS as SYSDBA'
+      ORACLE_PASSWORD: admin123
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

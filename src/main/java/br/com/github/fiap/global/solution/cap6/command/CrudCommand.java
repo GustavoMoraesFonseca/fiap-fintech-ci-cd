@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.github.fiap.global.solution.cap6.bean.GenericBean;
 import br.com.github.fiap.global.solution.cap6.config.OracleConfig;
 import br.com.github.fiap.global.solution.cap6.dao.ICrudDAO;
 import lombok.AllArgsConstructor;
 
+@Repository
 @AllArgsConstructor
 public class CrudCommand<Dto> {
 	

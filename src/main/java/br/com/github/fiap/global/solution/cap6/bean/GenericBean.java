@@ -5,8 +5,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class GenericBean<Dto> implements Serializable  {
 
 	private static final long serialVersionUID = 1L;
