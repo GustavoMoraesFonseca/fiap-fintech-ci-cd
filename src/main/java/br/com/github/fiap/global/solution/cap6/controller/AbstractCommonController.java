@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.github.fiap.global.solution.cap6.business.CrudBusinessImpls;
+import br.com.github.fiap.global.solution.cap6.dto.ResponseDto;
 import br.com.github.fiap.global.solution.cap6.exception.ConflictException;
 import br.com.github.fiap.global.solution.cap6.exception.NotFoundException;
 
@@ -31,6 +32,11 @@ public abstract class AbstractCommonController<Dto> {
 	
 	protected abstract String getDtoName();
 	
+	@GetMapping("/health")
+	public ResponseEntity<ResponseDto> healthCheck() {
+		return ok("Running");
+	}
+
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable("id") int id) {
     	LocalDateTime dtHrStart = LocalDateTime.now();

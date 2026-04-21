@@ -29,8 +29,7 @@ jobs:
     - name: Testing Application
       run: mvn test
 
-    - name: Deploy in Render
+    - name: Deploy no Render
       run: |
-        curl -X POST https://api.render.com/v1/services/srv-d7jf42pj2pic739cp0v0/deploys \
-        -H 'Accept: application/json' \
-        -H 'Authorization: Bearer rnd_ZOWD6eClAOOvk3SoTFGnoedQbJsL'
+        curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
+        -H 'Authorization: Bearer ${{ secrets.RENDER_API_KEY }}'
