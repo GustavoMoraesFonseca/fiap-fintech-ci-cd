@@ -24,7 +24,7 @@ import br.com.github.fiap.global.solution.cap6.dto.ResponseDto;
 import br.com.github.fiap.global.solution.cap6.exception.ConflictException;
 import br.com.github.fiap.global.solution.cap6.exception.NotFoundException;
 
-@RestController
+
 public abstract class AbstractCommonController<Dto> {
 
 	@Autowired
